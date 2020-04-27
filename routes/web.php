@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Auth::routes();
 
@@ -36,3 +36,4 @@ Route::post('/admin/password/email', 'Auth\ForgotPasswordController@sendResetLin
 Route::get('/admin/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
 Route::post('/admin/password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/admin/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
+});
