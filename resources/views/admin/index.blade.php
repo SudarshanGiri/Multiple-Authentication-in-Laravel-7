@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+@include('admin.navbar')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,6 +18,7 @@
 
                     You are logged in as  ADMIN! 
                 </div>
+                
             </div>
         </div>
     </div>
