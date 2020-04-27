@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Exceptions;
-
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use Illuminate\Support\Arr;
 class Handler extends ExceptionHandler
 {
     /**
@@ -49,7 +49,18 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $exception)
-    {
+    {   
+        if($exception instanceof AuthenticationException){
+            $guard = Arr::get($exception->guards(), 0);
+            switch($guard){
+                case 'admin':
+                    return redirect(route('admin.login'));
+                    break;
+                default:
+                    return redirect(route('login'));
+                    break;
+            }
+        }
         return parent::render($request, $exception);
     }
 }
