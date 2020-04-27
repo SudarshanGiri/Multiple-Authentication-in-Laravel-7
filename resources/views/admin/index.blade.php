@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <a href="/admin/logout" style="padding:50px;">LOGOUT</a>
                 <div class="card-header">ADMIN Dashboard</div>
 
                 <div class="card-body">

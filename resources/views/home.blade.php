@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <a href="/users/logout" style="padding:50px;">LOGOUT</a>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
